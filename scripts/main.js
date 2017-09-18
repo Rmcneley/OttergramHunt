@@ -4,9 +4,9 @@ var THUMBNAIL_LINK_SELECTOR = '[data-image-role="trigger"]';
 var ALL_DIU_SELECTOR = '[data-image-url]';
 
 function changeRandomUrl() {
-  setTimeout(function(){
+  setTimeout(function() {
     var random = Math.floor(Math.random() * 5);
-    var RANDOM_URL_SELECTOR = '[data-image-url="img/otter' + (random+1) + '.jpg"]';
+    var RANDOM_URL_SELECTOR = '[data-image-url="img/otter' + (random + 1) + '.jpg"]';
     var detailImage = document.querySelector(RANDOM_URL_SELECTOR);
     detailImage.setAttribute('data-image-url', 'http://www.tshirtlaundry.com/assets/images/photos/Tacocat3-5-2013-2.jpg');
   }, 1000);
@@ -15,7 +15,7 @@ function changeRandomUrl() {
 function resetAllRandomOne() {
   var thumbnails = document.querySelectorAll(ALL_DIU_SELECTOR);
   for (i = 0; i < 5; i++) {
-    thumbnails[i].setAttribute('data-image-url', 'img/otter'+ (i+1) + '.jpg');
+    thumbnails[i].setAttribute('data-image-url', 'img/otter' + (i + 1) + '.jpg');
   }
   changeRandomUrl();
 }
@@ -46,12 +46,12 @@ function setDetailsFromThumb(thumbnail) {
 
 function addThumbClickHandler(thumb) {
   'use strict';
-  thumb.addEventListener('click', function (event) {
+  thumb.addEventListener('click', function(event) {
     event.preventDefault();
     setDetailsFromThumb(thumb);
     if (thumb.getAttribute('data-image-url') == 'http://www.tshirtlaundry.com/assets/images/photos/Tacocat3-5-2013-2.jpg')
       resetAllRandomOne();
-});
+  });
 }
 
 function getThumbnailsArray() {
